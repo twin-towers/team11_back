@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+
+#  hackathon-db:
+#    image: postgres:15
+#    container_name: hackathon-db
+#    environment:
+#      POSTGRES_DB: "hackathon_db"
+#      POSTGRES_USER: "postgres"
+#      POSTGRES_PASSWORD: "123"
+#      PGDATA: "/var/lib/postgresql/data/pgdata"
+#    volumes:
+#      - ~/docker/hackathon_db:/var/lib/postgresql/data
+#    ports:
+#      - "5435:5432"
+#    networks:
+#      - hackathon-net
+#    restart: always
+
+  hackathon11:
+    container_name: hackathon11
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL:  "jdbc:postgresql://dpg-cl71u7oicrhc73d01q4g-a.oregon-postgres.render.com:5432/database_render_spring_boot_j1xw"
+      SPRING_DATASOURCE_USERNAME: "database_render_spring_boot_j1xw_user"
+      SPRING_DATASOURCE_PASSWORD: "8unu9dwHB7RYz90Lwvj2dMC1EA7WSzAg"
+    networks:
+      - hackathon-net
+#    volumes:
+#      - ./secret:/opt/app/secret
+    restart: always
+
+networks:
+  hackathon-net:
+    driver: bridge
