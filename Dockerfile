@@ -1,6 +1,15 @@
-FROM openjdk:17
-ARG jarFile=/target/hackathon11-0.0.1-SNAPSHOT.jar
-WORKDIR /opt/app
-COPY ${jarFile} hackathon.jar
+#
+# Build stage
+#
+FROM maven:3.8.2-jdk-17 AS build
+COPY . .
+RUN mvn clean package -DskipTests
+
+#
+# Package stage
+#
+FROM openjdk:17-jdk-slim
+COPY --from=build /target/hackathon11-0.0.1-SNAPSHOT.jar hackathon11.jar
+# ENV PORT=8080
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","hackathon.jar"]
+ENTRYPOINT ["java","-jar","hackathon11.jar"]
