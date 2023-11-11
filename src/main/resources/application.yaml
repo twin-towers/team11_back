@@ -1,18 +1,16 @@
 server:
   port: 8080
-#  servlet:
-#    context-path: /auth-service
-#flyway:
-#  user: postgres
-#  password: 239
-#  schemas: hackathon_db
-#  url: jdbc:postgresql://localhost:5432/hackathon_db
 spring:
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://dpg-cl71u7oicrhc73d01q4g-a.oregon-postgres.render.com:5432/database_render_spring_boot_j1xw
+#    username: database_render_spring_boot_j1xw_user
+#    password: 8unu9dwHB7RYz90Lwvj2dMC1EA7WSzAg
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://dpg-cl71u7oicrhc73d01q4g-a.oregon-postgres.render.com:5432/database_render_spring_boot_j1xw
-    username: database_render_spring_boot_j1xw_user
-    password: 8unu9dwHB7RYz90Lwvj2dMC1EA7WSzAg
+    url: jdbc:postgresql://localhost:5432/hackathon_db
+    username: postgres
+    password: 123
   jpa:
     show-sql: true
     properties:
@@ -20,6 +18,6 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         hbm2ddl:
           auto: update
-
-#jwt:
-#  lifetime: 36000000
+jwt:
+  lifetime: 36000000
+  secret: 3w2oi4urhf394ghf3497g948tyrh04283hi8wregf83w4gf8734yto34ht98h8&G*&^F7f3r87gihdsf
