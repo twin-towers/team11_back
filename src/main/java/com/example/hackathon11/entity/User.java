@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -29,5 +30,8 @@ public class User implements Serializable {
 
     @Column(name = "nickname")      //USERNAME
     private String nickname;
+
+    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "user")
+    private List<Project> projects;
 
 }
