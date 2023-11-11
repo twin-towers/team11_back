@@ -1,7 +1,7 @@
 server:
   port: 8080
   servlet:
-    context-path: /auth-service
+#    context-path: /auth-service
 #flyway:
 #  user: postgres
 #  password: 239
