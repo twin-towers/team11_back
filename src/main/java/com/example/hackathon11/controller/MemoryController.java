@@ -17,14 +17,14 @@ import java.util.List;
 public class MemoryController {
     private final MemoryService memoryService;
 
-    @CrossOrigin("http://localhost:5173")
+    @CrossOrigin(origins = {"http://localhost:5173", "https://team11-front.vercel.app"})
     @GetMapping()
     public List<MemoryRecordDto> getMemoryRecords()  {
 
         return memoryService.getMemoryRecords();
     }
 
-    @CrossOrigin("http://localhost:5173")
+    @CrossOrigin(origins = {"http://localhost:5173", "https://team11-front.vercel.app"})
     @PostMapping()
     public StringResponse addMemoryEntry(@RequestBody MemoryRequestDto memoryRequestDto,
                                          @RequestHeader(HttpHeaders.AUTHORIZATION)
@@ -35,7 +35,7 @@ public class MemoryController {
     }
 
 
-    @CrossOrigin("http://localhost:5173")
+    @CrossOrigin(origins = {"http://localhost:5173", "https://team11-front.vercel.app"})
     @GetMapping("user")
     public List<MemoryRecordDto> getUserMemoryRecords(@RequestParam Long id)  {
 
