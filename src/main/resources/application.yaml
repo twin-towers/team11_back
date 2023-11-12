@@ -1,16 +1,16 @@
 server:
   port: 8080
 spring:
-#  datasource:
-#    driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://dpg-cl71u7oicrhc73d01q4g-a.oregon-postgres.render.com:5432/database_render_spring_boot_j1xw
-#    username: database_render_spring_boot_j1xw_user
-#    password: 8unu9dwHB7RYz90Lwvj2dMC1EA7WSzAg
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/hackathon_db
-    username: postgres
-    password: 123
+    url: jdbc:postgresql://dpg-cl71u7oicrhc73d01q4g-a.oregon-postgres.render.com:5432/database_render_spring_boot_j1xw
+    username: database_render_spring_boot_j1xw_user
+    password: 8unu9dwHB7RYz90Lwvj2dMC1EA7WSzAg
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/hackathon_db
+#    username: postgres
+#    password: 123
   jpa:
     show-sql: true
     properties:
