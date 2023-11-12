@@ -10,7 +10,8 @@ public interface CustomConstants {
     String RECORD_ADDED_SUCCESSFULLY = "Игра успешно сохранена";
     String MOVES_ABSENT = "Не заполнено поле moves";
     String TIME_ABSENT = "Не заполнено поле time";
-    String INVALID_TOKEN = "Токен некорректный";
+    String CHANGES_ARE_SAVED = "Изменения сохранены";
+
     String RESOURCE_NOT_FOUND_CODE = "RESOURCE_NOT_FOUND";
     String INPUT_DATA_ERROR_CODE = "INPUT_DATA_ERROR";
     String CHECK_TOKEN_ERROR = "CHECK_TOKEN_ERROR";
@@ -18,4 +19,5 @@ public interface CustomConstants {
     String TOKEN_IS_EXPIRED_CODE = "TOKEN_IS_EXPIRED";
     String TOKEN_IS_MALFORMED_CODE = "TOKEN_IS_MALFORMED";
     String INVALID_SIGNATURE_CODE = "INVALID_SIGNATURE";
+
 }

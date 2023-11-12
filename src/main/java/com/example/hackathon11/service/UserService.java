@@ -3,10 +3,7 @@ package com.example.hackathon11.service;
 import com.example.hackathon11.config.CustomUserDetailsService;
 import com.example.hackathon11.constants.CustomConstants;
 import com.example.hackathon11.converter.UserConverter;
-import com.example.hackathon11.dto.JwtRequest;
-import com.example.hackathon11.dto.JwtResponse;
-import com.example.hackathon11.dto.RegisterUserDto;
-import com.example.hackathon11.dto.UserDto;
+import com.example.hackathon11.dto.*;
 import com.example.hackathon11.entity.User;
 import com.example.hackathon11.exception.CustomBadCredentialsException;
 import com.example.hackathon11.exception.InputDataErrorException;
@@ -124,15 +121,44 @@ public class UserService implements CustomConstants {
         return new JwtResponse(token, userConverter.entityToDto(user));
     }
 
-    public UserDto getUserDetails(String token) throws InputDataErrorException {
-        try {
-            String email = jwtTokenUtil.getUsernameFromToken(token);
-
+    public UserDto getUserDetails(String token) {
+        String email = jwtTokenUtil.getUsernameFromToken(token);
         User user = findByUsername(email).orElseThrow
                 (() -> new UsernameNotFoundException(String.format("User '%s' not found", email)));
         return userConverter.entityToDto(user);
-        } catch (Exception e) {
-            throw new InputDataErrorException(INVALID_TOKEN);
+    }
+
+    public StringResponse editUser(RegisterUserDto registerUserDto, String token) {
+        String email = jwtTokenUtil.getUsernameFromToken(token);
+        User user = findByUsername(email).orElseThrow
+                (() -> new UsernameNotFoundException(String.format("User '%s' not found", email)));
+
+        String nickname = registerUserDto.getUsername(); // USERNAME -> nickname
+        String password = registerUserDto.getPassword();
+        String username = registerUserDto.getEmail();    // EMAIL -> username
+        String firstName = registerUserDto.getFirstName();
+        String lastName = registerUserDto.getLastName();
+
+        if (username!=null && !username.isBlank()) {
+            user.setUsername(username);
         }
+        if (nickname!=null && !nickname.isBlank()) {
+            user.setNickname(nickname);
+        }
+        if (password!=null && !password.isBlank()) {
+            String encryptedPassword = passwordEncoder.encode(registerUserDto.getPassword());
+            user.setPassword(encryptedPassword);
+        }
+        if (firstName!=null && !firstName.isBlank()) {
+            user.setFirstName(firstName);
+        }
+        if (lastName!=null && !lastName.isBlank()) {
+            user.setLastName(lastName);
+        }
+
+        userRepository.save(user);
+
+        return new StringResponse(CHANGES_ARE_SAVED);
+
     }
 }

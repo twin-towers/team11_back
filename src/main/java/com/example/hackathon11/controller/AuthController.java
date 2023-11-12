@@ -17,13 +17,13 @@ public class AuthController implements CustomConstants {
     private final UserService userService;
 
 
-    @CrossOrigin("http://localhost:5173")
+    @CrossOrigin(origins = {"http://localhost:5173", "https://team11-front.vercel.app"})
     @PostMapping()
     public JwtResponse createAuthToken(@RequestBody JwtRequest authRequest) {
         return userService.createAuthToken(authRequest);
     }
 
-    @CrossOrigin("http://localhost:5173")
+    @CrossOrigin(origins = {"http://localhost:5173", "https://team11-front.vercel.app"})
     @GetMapping()
     public UserDto getUserDetails(@RequestHeader(HttpHeaders.AUTHORIZATION) String authorization)
             throws InputDataErrorException {
