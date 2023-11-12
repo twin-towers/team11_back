@@ -10,25 +10,26 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "canvas")
-public class Canvas {
+@Table(name = "memory_records")
+public class MemoryRecord {
     @Id
     @SequenceGenerator(name = "sequenceGenerator", sequenceName = "sequence_name_user", allocationSize = 1, initialValue = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "background_color")
-    private String backgroundColor;
+    @Column(name = "difficulty")
+    @Enumerated(EnumType.STRING)
+    private MemoryDifficulty difficulty;
 
-    @Column(name = "background_image")
-    private String backgroundImage;
+    @Column(name = "moves")
+    private Integer moves;
 
-    @Column(name = "height")
-    private int height;
+    @Column(name = "time")
+    private Integer time;           //milliseconds
 
-    @Column(name = "width")
-    private int width;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @Column(name = "padding")
-    private int padding;
+
 }

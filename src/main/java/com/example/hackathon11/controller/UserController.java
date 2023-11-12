@@ -4,8 +4,8 @@ import com.example.hackathon11.constants.CustomConstants;
 import com.example.hackathon11.dto.JwtResponse;
 import com.example.hackathon11.dto.RegisterUserDto;
 import com.example.hackathon11.entity.User;
-import com.example.hackathon11.exceptions.InputDataErrorException;
-import com.example.hackathon11.services.UserService;
+import com.example.hackathon11.exception.InputDataErrorException;
+import com.example.hackathon11.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,19 +32,4 @@ public class UserController implements CustomConstants {
         // пользователя нет - регистрируем
     }
 
-
-//    @GetMapping("count-users")
-//    public String getCountUsers(){
-//        long numberUsers = userRepository.count();
-//        return "Number of users = "+numberUsers;
-//    }
-//
-//    @GetMapping("add-user")
-//    public String addUser(){
-//        User user = new User();
-//        user.setFirstName("Render");
-//        user.setLastName("Spring Boot");
-//        userRepository.save(user);
-//        return "User added successfully";
-//    }
 }

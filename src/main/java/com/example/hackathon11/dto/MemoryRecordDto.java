@@ -9,11 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SimpleIconDto {
-    private String id;
-    private int size;
-    private CoordinatesDto coordinates;
-    private int rotate;
-    private int zIndex;
-    private String color;
+public class MemoryRecordDto {
+    private Long id;
+    private String difficulty;
+    private Integer moves;
+    private Integer time;           //milliseconds
+    private Long userId;
 }

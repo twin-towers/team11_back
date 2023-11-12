@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CoordinatesDto {
-    private String x;
-    private String y;
+public class MemoryRequestDto {
+    private String difficulty;
+    private Integer moves;
+    private Integer time;           //milliseconds
 }
