@@ -7,12 +7,10 @@ import com.example.hackathon11.entity.User;
 import com.example.hackathon11.exceptions.InputDataErrorException;
 import com.example.hackathon11.services.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -20,6 +18,7 @@ import java.util.Optional;
 public class UserController implements CustomConstants {
     private final UserService userService;
 
+    @CrossOrigin("http://localhost:5173")
     @PostMapping()
     public JwtResponse registerNewUser(@RequestBody RegisterUserDto registerUserDto)
             throws InputDataErrorException {
