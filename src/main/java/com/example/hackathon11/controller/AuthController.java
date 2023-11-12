@@ -33,11 +33,13 @@ public class AuthController implements CustomConstants {
     private final UserService userService;
 
 
+    @CrossOrigin("http://localhost:5173")
     @PostMapping()
     public JwtResponse createAuthToken(@RequestBody JwtRequest authRequest) {
         return userService.createAuthToken(authRequest);
     }
 
+    @CrossOrigin("http://localhost:5173")
     @GetMapping()
     public UserDto getUserDetails(@RequestHeader(HttpHeaders.AUTHORIZATION) String authorization)
             throws InputDataErrorException {
