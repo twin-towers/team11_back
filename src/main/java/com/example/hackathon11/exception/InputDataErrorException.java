@@ -1,4 +1,4 @@
-package com.example.hackathon11.exceptions;
+package com.example.hackathon11.exception;
 
 import javax.xml.bind.ValidationException;
 

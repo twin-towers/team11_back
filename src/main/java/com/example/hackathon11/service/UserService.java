@@ -1,4 +1,4 @@
-package com.example.hackathon11.services;
+package com.example.hackathon11.service;
 
 import com.example.hackathon11.config.CustomUserDetailsService;
 import com.example.hackathon11.constants.CustomConstants;
@@ -8,10 +8,10 @@ import com.example.hackathon11.dto.JwtResponse;
 import com.example.hackathon11.dto.RegisterUserDto;
 import com.example.hackathon11.dto.UserDto;
 import com.example.hackathon11.entity.User;
-import com.example.hackathon11.exceptions.CustomBadCredentialsException;
-import com.example.hackathon11.exceptions.InputDataErrorException;
+import com.example.hackathon11.exception.CustomBadCredentialsException;
+import com.example.hackathon11.exception.InputDataErrorException;
 import com.example.hackathon11.repository.UserRepository;
-import com.example.hackathon11.utils.JwtTokenUtil;
+import com.example.hackathon11.util.JwtTokenUtil;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -65,7 +65,8 @@ public class UserService implements CustomConstants {
         }
     }
 
-    private String validateAndSaveFields(RegisterUserDto registerUserDto, String encryptedPassword, User user) {
+    private String validateAndSaveFields(RegisterUserDto registerUserDto, String encryptedPassword,
+                                         User user) {
 
         String username = registerUserDto.getUsername();
         String email = registerUserDto.getEmail();

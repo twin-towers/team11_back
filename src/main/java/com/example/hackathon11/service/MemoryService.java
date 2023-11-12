@@ -1,4 +1,4 @@
-package com.example.hackathon11.services;
+package com.example.hackathon11.service;
 
 import com.example.hackathon11.constants.CustomConstants;
 import com.example.hackathon11.converter.MemoryRecordConverter;
@@ -8,10 +8,10 @@ import com.example.hackathon11.dto.StringResponse;
 import com.example.hackathon11.entity.MemoryDifficulty;
 import com.example.hackathon11.entity.MemoryRecord;
 import com.example.hackathon11.entity.User;
-import com.example.hackathon11.exceptions.InputDataErrorException;
+import com.example.hackathon11.exception.InputDataErrorException;
 import com.example.hackathon11.repository.MemoryRecordRepository;
 import com.example.hackathon11.repository.UserRepository;
-import com.example.hackathon11.utils.JwtTokenUtil;
+import com.example.hackathon11.util.JwtTokenUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;

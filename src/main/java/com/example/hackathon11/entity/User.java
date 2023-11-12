@@ -31,8 +31,8 @@ public class User implements Serializable {
     @Column(name = "nickname")      //USERNAME
     private String nickname;
 
-    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "user")
-    private List<Project> projects;
+//    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "user")
+//    private List<Project> projects;
 
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "user")
     private List<MemoryRecord> memoryRecords;

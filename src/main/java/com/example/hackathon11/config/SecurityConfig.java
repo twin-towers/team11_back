@@ -1,8 +1,8 @@
 package com.example.hackathon11.config;
 
 import com.example.hackathon11.repository.UserRepository;
-import com.example.hackathon11.utils.AuthTokenFilter;
-import com.example.hackathon11.utils.JwtTokenUtil;
+import com.example.hackathon11.util.AuthTokenFilter;
+import com.example.hackathon11.util.JwtTokenUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -51,7 +51,6 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .antMatchers("/api/v1/users/**").permitAll()
                 .antMatchers("/api/v1/auth/**").permitAll()
-                .antMatchers("/api/v1/projects/**").permitAll()
                 .antMatchers("/api/v1/memory/**").permitAll()
 //                .antMatchers(AUTH_WHITELIST).permitAll()
                 .anyRequest().authenticated()

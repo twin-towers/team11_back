@@ -1,4 +1,4 @@
-package com.example.hackathon11.exceptions;
+package com.example.hackathon11.exception;
 
 public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException(String message) {

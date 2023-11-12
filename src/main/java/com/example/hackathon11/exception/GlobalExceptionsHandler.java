@@ -1,4 +1,4 @@
-package com.example.hackathon11.exceptions;
+package com.example.hackathon11.exception;
 
 import com.example.hackathon11.constants.CustomConstants;
 import com.example.hackathon11.dto.AppError;

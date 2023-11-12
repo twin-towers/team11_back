@@ -1,4 +1,4 @@
-package com.example.hackathon11.utils;
+package com.example.hackathon11.util;
 
 import com.example.hackathon11.config.CustomUserDetailsService;
 import com.example.hackathon11.constants.CustomConstants;
