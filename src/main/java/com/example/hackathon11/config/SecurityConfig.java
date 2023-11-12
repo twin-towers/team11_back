@@ -52,6 +52,7 @@ public class SecurityConfig {
                 .antMatchers("/api/v1/users/**").permitAll()
                 .antMatchers("/api/v1/auth/**").permitAll()
                 .antMatchers("/api/v1/projects/**").permitAll()
+                .antMatchers("/api/v1/memory/**").permitAll()
 //                .antMatchers(AUTH_WHITELIST).permitAll()
                 .anyRequest().authenticated()
                 .and()
